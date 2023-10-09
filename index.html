@@ -48,7 +48,7 @@ $(document).ready(function(){
    $.each(data, function(key, value){
     if (value.name.search(expression) != -1 || value.id.search(expression) != -1)
     {
-     $('#result').append('<li class="list-group-item link-class"><img src="'+value.image+'" height="40" width="40" class="img-thumbnail" /> '+value.name+' | <span class="text-muted">'+value.location+'</span> | <span class="text-muted">'+value.program+'</span><a href="'+value.image+'">Certificate</a></li>');
+     $('#result').append('<li class="list-group-item link-class"><img src="'+value.image+'" height="40" width="40" class="img-thumbnail" /> '+value.name+' | <span class="text-muted">'+value.location+'</span> | <span class="text-muted">'+value.program+'</span><a href="'+value.image+'"> Certificate</a></li>');
     }
    });   
   });
