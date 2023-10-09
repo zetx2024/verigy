@@ -1,0 +1,53 @@
+
+[
+  {
+    "id":"01",
+    "name":"Md Sanaul Haque Shanto",
+    "image": "https://yrjournal.org/images/staff-01.jpg",
+    "location":"Madison, Wisconsin, USA",
+    "school":"University of Wisconsin Madison",
+    "program":"Youth Research Journal",
+    "role":"Founder|Lead Researcher",
+    "date":"August 20, 2020"
+  },
+  {
+    "id":"02",
+    "name":"Sanjida Nusrat Annanya",
+    "image": "https://yrjournal.org/images/staff-2.jpg",
+    "location":"California, USA",
+    "school":"California Institute of Technology",
+    "program":"Youth Research Journal",
+    "role":"Lead Researcher",
+    "date":"August 20, 2020"
+  },
+  {
+    "id":"03",
+    "name":"Md Mahfuzur Rahman",
+    "image": "https://yrjournal.org/images/staff-2.jpg",
+    "location":"Dhaka, Bangladesh",
+    "school":"Bangladesh University of Textile",
+    "program":"Youth Research Journal",
+    "role":"Mentor|Researcher",
+    "date":"August 20, 2020"
+  },
+  {
+    "id":"04",
+    "name":"Tahmid Hasan Fuad",
+    "image": "https://yrjournal.org/images/staff-3.jpg",
+    "location":"Khulna, Bangladesh",
+    "school":"Khulna University of Engineering and Technology",
+    "program":"Youth Research Journal",
+    "role":"Mentor|Researcher",
+    "date":"August 20, 2020"
+  },
+  {
+    "id":"CB100005",
+    "name":"Pratyoy Kayasthagir",
+    "image": "https://yrjournal.org/images/3.jpg",
+    "location":"Chattogram, Bangladesh",
+    "school":"Cantonment English School and College",
+    "program":"Computational Biology",
+    "role":"Student",
+    "date":"October 10, 2023"
+  }
+]
