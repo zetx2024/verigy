@@ -1,63 +1,147 @@
 <!DOCTYPE html>
-<html>
- <head>
+<html lang="en">
+
+<head>
   <title>Verify Identity & Certificate | Youth Research Journal</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
+    <script src="https://unpkg.com/downloadjs@1.4.7"></script>
+
   <style>
-  #result {
-   position: absolute;
-   width: 100%;
-   max-width:870px;
-   cursor: pointer;
-   overflow-y: auto;
-   max-height: 400px;
-   box-sizing: border-box;
-   z-index: 1001;
-  }
-  .link-class:hover{
-   background-color:#f1f1f1;
-  }
+    #result {
+      position: absolute;
+      width: 100%;
+      max-width: 870px;
+      cursor: pointer;
+      overflow-y: auto;
+      max-height: 400px;
+      box-sizing: border-box;
+      z-index: 1001;
+    }
+
+    .link-class:hover {
+      background-color: #f1f1f1;
+    }
   </style>
- </head>
- <body>
+</head>
+
+<body>
   <br /><br />
   <div class="container" style="width:900px;">
-   <h2 align="center">Verify Identity & Certificate</h2>
-   <h3 align="center">Youth Research Journal</h3>   
-   <br /><br />
-   <div align="center">
-    <input type="text" name="search" id="search" placeholder="Search Student Details: Name, Verification Code" class="form-control" />
-   </div>
-   <ul class="list-group" id="result"></ul>
-   <br />
+    <h2 align="center">Verify Identity & Certificate</h2>
+    <h3 align="center">Youth Research Journal</h3>
+    <br /><br />
+    <div align="center">
+      <input type="text" name="search" id="search" placeholder="Search Student Details: Name, Verification Code" class="form-control" />
+    </div>
+    <ul class="list-group" id="result"></ul>
+    <br />
   </div>
- </body>
-</html>
 
-<script>
-$(document).ready(function(){
- $.ajaxSetup({ cache: false });
- $('#search').keyup(function(){
-  $('#result').html('');
-  $('#state').val('');
-  var searchField = $('#search').val();
-  var expression = new RegExp(searchField, "i");
-  $.getJSON('data.json', function(data) {
-   $.each(data, function(key, value){
-    if (value.name.search(expression) != -1 || value.id.search(expression) != -1)
-    {
-     $('#result').append('<li class="list-group-item link-class"><img src="'+value.image+'" height="40" width="40" class="img-thumbnail" /> '+value.name+' | <span class="text-muted">'+value.location+'</span> | <span class="text-muted">'+value.role+'</span> | <span class="text-muted">'+value.program+'</span><a href="'+value.image+'"> Certificate</a></li>');
-    }
-   });   
-  });
- });
+
+
+  <script>
+    $(document).ready(function () {
+      $.ajaxSetup({ cache: false });
+      $('#search').keyup(function () {
+        $('#result').html('');
+        var searchField = $('#search').val();
+        var expression = new RegExp(searchField, "i");
+        $.getJSON('data.json', function (data) {
+          $.each(data, function (key, value) {
+            if (value.name.search(expression) != -1 || value.id.search(expression) != -1) {
+              $('#result').append(`
+                <li class="list-group-item link-class">
+                  <img src="${value.image}" height="40" width="40" class="img-thumbnail" /> ${value.name} | 
+                  <span class="text-muted">${value.location}</span> | <span class="text-muted">${value.program}</span>
+                  <button onclick="generateCertificate('${value.id}', '${value.name}', '${value.program}', '${value.date}','${value.research}')">Generate Certificate</button>
+                </li>
+              `);
+            }
+          });
+        });
+      });
+
+      $('#result').on('click', 'li', function () {
+        var click_text = $(this).text().split('|');
+        $('#search').val($.trim(click_text[0]));
+        $("#result").html('');
+      });
+    });
+
+
+  const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib;
+
+
+    async function generateCertificate(studentId, studentName, program, date, research) {
+      // Fetch student details based on the ID
+      const studentDetails = await fetchStudentDetails(studentId);
+
+      if (!studentDetails) {
+        alert('Student not found');
+        return;
+      }
+
+      // Fetch an existing PDF document
+      const url = 'yrjcert.pdf';
+        const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
+
+      // Load a PDFDocument from the existing PDF bytes
+      const pdfDoc = await PDFDocument.load(existingPdfBytes);
+
+      // Embed the Helvetica font
+      const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+
+      // Get the first page of the document
+      const pages = pdfDoc.getPages();
+      const firstPage = pages[0];
+
+      // Get the width and height of the first page
+      const { width, height } = firstPage.getSize();
+
  
- $('#result').on('click', 'li', function() {
-  var click_text = $(this).text().split('|');
-  $('#search').val($.trim(click_text[0]));
-  $("#result").html('');
- });
-});
-</script>
+      firstPage.drawText(`${studentName}`, { x:260, y:335, fontSize: 14 });
+      firstPage.drawText(`${studentId}`, { x:610, y:93, fontSize: 4 });
+      firstPage.drawText(`${program}`, { x:320, y:270, fontSize: 6 });
+      firstPage.drawText(`${date}`, { x:125, y:215, fontSize: 6 });
+      firstPage.drawText(`${research}`, { x:123, y:245, fontSize: 6 });
+
+      // Save the PDF to a file
+      const pdfBytes = await pdfDoc.save();
+      downloadPDF(pdfBytes, `${studentId}_YRJ_Certificate.pdf`);
+    }
+
+    async function fetchStudentDetails(studentId) {
+      try {
+        // Read the local JSON file
+        const response = await fetch('data.json');
+        const data = await response.json();
+
+        // Find the student with the given ID
+        const student = data.find(s => s.id === studentId);
+
+        if (!student) {
+          console.error(`Student with ID ${studentId} not found`);
+          return null;
+        }
+
+        return student;
+      } catch (error) {
+        console.error('Error fetching student details:', error);
+        return null;
+      }
+    };
+
+    function downloadPDF(pdfBytes, filename) {
+      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+    };
+  </script>
+</body>
+
+</html>
