@@ -1,14 +1,15 @@
 
 [
   {
-    "id":"01",
+    "id":"ceo-founder-researcher",
     "name":"Md Sanaul Haque Shanto",
     "image": "https://yrjournal.org/images/staff-01.jpg",
     "location":"Madison, Wisconsin, USA",
     "school":"University of Wisconsin Madison",
     "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning",
     "role":"Founder|Lead Researcher",
-    "date":"August 20, 2020"
+    "date":"August 20, 2020 to Present"
   },
   {
     "id":"02",
@@ -17,8 +18,9 @@
     "location":"California, USA",
     "school":"California Institute of Technology",
     "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning",
     "role":"Lead Researcher",
-    "date":"August 20, 2020"
+    "date":"August 20, 2020 to Present"
   },
   {
     "id":"03",
@@ -27,8 +29,9 @@
     "location":"Dhaka, Bangladesh",
     "school":"Bangladesh University of Textile",
     "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning",
     "role":"Mentor|Researcher",
-    "date":"August 20, 2020"
+    "date":"August 20, 2020 to Present"
   },
   {
     "id":"04",
@@ -37,17 +40,19 @@
     "location":"Khulna, Bangladesh",
     "school":"Khulna University of Engineering and Technology",
     "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning",
     "role":"Mentor|Researcher",
-    "date":"August 20, 2020"
+    "date":"August 20, 2020 to Present"
   },
   {
     "id":"CB100005",
     "name":"Pratyoy Kayasthagir",
-    "image": "https://yrjournal.org/images/3.jpg",
+    "image": "#",
     "location":"Chattogram, Bangladesh",
     "school":"Cantonment English School and College",
-    "program":"Computational Biology",
+    "program":"xxxx",
+    "research":"xxxxx",
     "role":"Student",
-    "date":"October 10, 2023"
+    "date":"xxxx"
   }
 ]
