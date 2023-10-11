@@ -7,9 +7,10 @@
     "location":"Madison, Wisconsin, USA",
     "school":"University of Wisconsin Madison",
     "program":"Youth Research Journal",
-    "research":"Youth Research Journal | Computational Biology | Machine Learning",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning | Bioinformatics | Sociology",
     "role":"Founder|Lead Researcher",
-    "date":"August 20, 2020 to Present"
+    "date":"August 20, 2020",
+    "to":"August 20, 2023"
   },
   {
     "id":"02",
@@ -20,7 +21,8 @@
     "program":"Youth Research Journal",
     "research":"Youth Research Journal | Computational Biology | Machine Learning",
     "role":"Lead Researcher",
-    "date":"August 20, 2020 to Present"
+    "date":"August 20, 2020",
+    "to":"August 20, 2023"
   },
   {
     "id":"03",
@@ -31,7 +33,8 @@
     "program":"Youth Research Journal",
     "research":"Youth Research Journal | Computational Biology | Machine Learning",
     "role":"Mentor|Researcher",
-    "date":"August 20, 2020 to Present"
+    "date":"August 20, 2020",
+    "to":"August 20, 2023"
   },
   {
     "id":"04",
@@ -42,7 +45,8 @@
     "program":"Youth Research Journal",
     "research":"Youth Research Journal | Computational Biology | Machine Learning",
     "role":"Mentor|Researcher",
-    "date":"August 20, 2020 to Present"
+    "date":"August 20, 2020",
+    "to":"August 20, 2023"
   },
   {
     "id":"CB100005",
@@ -53,6 +57,7 @@
     "program":"xxxx",
     "research":"xxxxx",
     "role":"Student",
-    "date":"xxxx"
+    "date":"xxxx",
+    "to":"August 20, 2023"
   }
 ]
