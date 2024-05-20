@@ -24,52 +24,17 @@
     "date":"August 20, 2020",
     "to":"Present"
   },
+
   {
-    "id":"Lead Researcher",
-    "name":"Sanjida Nusrat Annanya",
-    "image": "https://yrjournal.org/images/staff-2.jpg",
-    "location":"California, USA",
-    "school":"California Institute of Technology",
-    "program":"Youth Research Journal",
-    "research":"Youth Research Journal | Computational Biology | Machine Learning",
-    "role":"Lead Researcher",
-    "date":"August 20, 2020",
-    "to":"Present"
-  },
-  {
-    "id":"Mentor|Researcher",
-    "name":"Md Mahfuzur Rahman",
-    "image": "https://yrjournal.org/images/staff-4.jpg",
-    "location":"Dhaka, Bangladesh",
-    "school":"Bangladesh University of Textile",
-    "program":"Youth Research Journal",
-    "research":"Youth Research Journal | Computational Biology | Machine Learning",
-    "role":"Mentor|Researcher",
-    "date":"August 20, 2020",
-    "to":"Present"
-  },
-  {
-    "id":"Mentor|Researcher",
-    "name":"Tahmid Hasan Fuad",
-    "image": "https://yrjournal.org/images/staff-3.jpg",
-    "location":"Khulna, Bangladesh",
-    "school":"Khulna University of Engineering and Technology",
-    "program":"Youth Research Journal",
-    "research":"Youth Research Journal | Computational Biology | Machine Learning",
-    "role":"Mentor|Researcher",
-    "date":"August 20, 2020",
-    "to":"Present"
-  },
-  {
-    "id":"----------",
-    "name":"Pratyoy Kayasthagir",
+    "id":"test",
+    "name":"testttttt",
     "image": "https://yrjournal.org/images/Logo.PNG",
-    "location":"Chattogram, Bangladesh",
-    "school":"Cantonment English School and College",
-    "program":"xxxx",
-    "research":"xxxxx",
-    "role":"Student",
-    "date":"xxxx",
-    "to":"xxxx"
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
   }
+  
 ]
