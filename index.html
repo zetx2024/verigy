@@ -233,7 +233,7 @@
         $('#result').html('');
         var searchField = $('#search').val();
         var expression = new RegExp(searchField, "i");
-        $.getJSON('data.json', function (data) {
+        $.getJSON('datap.json', function (data) {
           $.each(data, function (key, value) {
             if (value.name.search(expression) != -1 || value.id.search(expression) != -1) {
               $('#result').append(`
