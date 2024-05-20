@@ -1,0 +1,75 @@
+
+[
+  {
+    "id":"CEO|Founder|Lead Researcher",
+    "name":"Md Sanaul Haque Shanto",
+    "image": "https://yrjournal.org/images/staff-01.jpg",
+    "location":"Madison, Wisconsin, USA",
+    "school":"University of Wisconsin Madison",
+    "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning | Bioinformatics | Sociology",
+    "role":"Founder|Lead Researcher",
+    "date":"August 20, 2020",
+    "to":"Present"
+  },
+  {
+    "id":"Board Member of YRJ",
+    "name":"Md. Azmain Yakin Srizon",
+    "image": "https://yrjournal.org/images/azmain.png",
+    "location":"Rajshahi, Bangladesh",
+    "school":"Rajshahi University of Engineering and Technology",
+    "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning | Bioinformatics | Sociology",
+    "role":"Board Member|Lead Researcher",
+    "date":"August 20, 2020",
+    "to":"Present"
+  },
+  {
+    "id":"Lead Researcher",
+    "name":"Sanjida Nusrat Annanya",
+    "image": "https://yrjournal.org/images/staff-2.jpg",
+    "location":"California, USA",
+    "school":"California Institute of Technology",
+    "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning",
+    "role":"Lead Researcher",
+    "date":"August 20, 2020",
+    "to":"Present"
+  },
+  {
+    "id":"Mentor|Researcher",
+    "name":"Md Mahfuzur Rahman",
+    "image": "https://yrjournal.org/images/staff-4.jpg",
+    "location":"Dhaka, Bangladesh",
+    "school":"Bangladesh University of Textile",
+    "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning",
+    "role":"Mentor|Researcher",
+    "date":"August 20, 2020",
+    "to":"Present"
+  },
+  {
+    "id":"Mentor|Researcher",
+    "name":"Tahmid Hasan Fuad",
+    "image": "https://yrjournal.org/images/staff-3.jpg",
+    "location":"Khulna, Bangladesh",
+    "school":"Khulna University of Engineering and Technology",
+    "program":"Youth Research Journal",
+    "research":"Youth Research Journal | Computational Biology | Machine Learning",
+    "role":"Mentor|Researcher",
+    "date":"August 20, 2020",
+    "to":"Present"
+  },
+  {
+    "id":"----------",
+    "name":"Pratyoy Kayasthagir",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Chattogram, Bangladesh",
+    "school":"Cantonment English School and College",
+    "program":"xxxx",
+    "research":"xxxxx",
+    "role":"Student",
+    "date":"xxxx",
+    "to":"xxxx"
+  }
+]
