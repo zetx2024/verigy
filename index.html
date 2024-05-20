@@ -298,17 +298,16 @@
 
 
       const fsN = 35;
-      const fsP = 15;
+      const fsP = 16;
       const fsR = 12;
       const fsD = 14;
       const fsId = 10;
 
  
      
-      firstPage.drawText(`${program}`, { x:342, y:275, size: fsP,fontSize: 14 });
-      //firstPage.drawText(`"${research}"`, { x:182, y:254, size: fsR,fontSize: 14 });
-      firstPage.drawText(`${date}`, { x:250, y:232, size: fsD,fontSize: 14 });
-      firstPage.drawText(`${to}`, { x:490, y:232, size: fsD,fontSize: 14 });
+      firstPage.drawText(`${program}`, { x:420, y:275, size: fsP,fontSize: 16 });
+      firstPage.drawText(`${date}`, { x:320, y:232, size: fsD,fontSize: 14 });
+      firstPage.drawText(`${to}`, { x:465, y:232, size: fsD,fontSize: 14 });
       firstPage.drawText(`${studentId}`, { x:590, y:95, size: fsId,fontSize: 14 });
 
 
@@ -343,7 +342,7 @@
 
       // Save the PDF to a file
       const pdfBytes = await pdfDoc.save();
-      downloadPDF(pdfBytes, `${studentName}_${studentId}${program}_YRJ_Certificate.pdf`);
+      downloadPDF(pdfBytes, `${studentId}_${studentName}_${program}_YRJ_Certificate.pdf`);
     }
 
     async function fetchStudentDetails(studentId) {
