@@ -240,7 +240,7 @@
                 <li class="list-group-item link-class">
                   <img src="${value.image}" height="40" width="40" class="img-thumbnail" /> ${value.name} | 
                   <span class="text-muted">${value.location}</span> | <span class="text-muted">${value.program}</span>
-                  <button onclick="generateCertificate('${value.id}', '${value.name}', '${value.program}', '${value.date}', '${value.date}','${value.research}')">Generate Certificate</button>
+                  <button onclick="generateCertificate('${value.id}', '${value.name}', '${value.program}', '${value.date}', '${value.date}')">Generate Certificate</button>
                 </li>
               `);
             }
@@ -259,7 +259,7 @@
   const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib;
 
 
-    async function generateCertificate(studentId, studentName, program, date, to, research) {
+    async function generateCertificate(studentId, studentName, program, date, to) {
       // Fetch student details based on the ID
       const studentDetails = await fetchStudentDetails(studentId);
 
@@ -306,7 +306,7 @@
  
      
       firstPage.drawText(`${program}`, { x:342, y:275, size: fsP,fontSize: 14 });
-      firstPage.drawText(`"${research}"`, { x:182, y:254, size: fsR,fontSize: 14 });
+      //firstPage.drawText(`"${research}"`, { x:182, y:254, size: fsR,fontSize: 14 });
       firstPage.drawText(`${date}`, { x:250, y:232, size: fsD,fontSize: 14 });
       firstPage.drawText(`${to}`, { x:490, y:232, size: fsD,fontSize: 14 });
       firstPage.drawText(`${studentId}`, { x:590, y:95, size: fsId,fontSize: 14 });
@@ -333,8 +333,8 @@
         // are visible in the "Document Properties" section of most PDF readers.
         pdfDoc.setTitle(`Certificate | ${studentName} | ${program}`);
         pdfDoc.setAuthor('Md Sanaul Haque Shanto');
-        pdfDoc.setSubject(`${research}`);
-        pdfDoc.setKeywords(['YRJ', 'winter', 'summer', 'research', 'school', 'program']);
+        pdfDoc.setSubject(`YRJ Participation Certificate`);
+        pdfDoc.setKeywords(['YRJ', 'winter', 'spring', 'summer', 'research', 'school', 'program']);
         pdfDoc.setProducer('Md Sanaul Haque Shanto');
         pdfDoc.setCreator('Youth Research Journal (https://verify.yrjournal.org)');
         pdfDoc.setCreationDate(new Date());
@@ -349,7 +349,7 @@
     async function fetchStudentDetails(studentId) {
       try {
         // Read the local JSON file
-        const response = await fetch('data.json');
+        const response = await fetch('datap.json');
         const data = await response.json();
 
         // Find the student with the given ID
