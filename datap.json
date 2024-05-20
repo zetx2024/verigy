@@ -26,8 +26,8 @@
   },
 
   {
-    "id":"test",
-    "name":"testttttt",
+    "id":"AAPER3232",
+    "name":"Md Shahriar",
     "image": "https://yrjournal.org/images/Logo.PNG",
     "location":"Bangladesh",
     "school":"YRJ",
@@ -35,6 +35,348 @@
     "role":"Junior Researcher",
     "date":"November 15th, 2023",
     "to":"December 25th, 2023"
+  },
+  {
+    "id":"RHRIE2023",
+    "name":"Nafis Bin Mahmud",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"RRRRR3220",
+    "name":"Rizwanul Islam Sakib",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"RIRIR2022",
+    "name":"Rownak Jahan Disha",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"EWMIH2322",
+    "name":"Intezab Alam Sheikh",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"ERNYN2202",
+    "name":"Fairooz Binta Kabir",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"ENRCJ0022",
+    "name":"MD Mahir Absar",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"RRARH2302",
+    "name":"Uzzal Mistry",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"IIJIE0223",
+    "name":"Abdullah Al Junaed",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"YRYRT2300",
+    "name":"Samanja Nuren",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"CROEC2202",
+    "name":"Farabeed Bin Faisal",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"IWYER2202",
+    "name":"Khandaker Mahinul Islam",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"GOGWR0202",
+    "name":"Kasfia Azad",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"ARWEP0203",
+    "name":"Anuran Chowdhury",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"EATCA2223",
+    "name":"Md. Nafees Imtiaz",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"EHMAR2222",
+    "name":"Syed Shadman Sakib",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"RJSOR2232",
+    "name":"Chowdhury Mohammad Yasir Affan",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"TRYNG3202",
+    "name":"S M Sanbim Sifat",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"ATIES3332",
+    "name":"Lamiya Azom",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"RRCSH3230",
+    "name":"Ariyan Chowdhury",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"HCESO2223",
+    "name":"Imam Hussain Oyvi",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"ECWRR0222",
+    "name":"Md Iqtiar Uddin",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"PRACO2322",
+    "name":"Adib Raihan",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"CPOYT0222",
+    "name":"Biva Devi",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"REAJR0220",
+    "name":"Jasiya Mumtahana",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"SOHOC3202",
+    "name":"Fawzia B. Ahsan",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"RWHWI3332",
+    "name":"Addreta Tabassum Sreya",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"AERGA0230",
+    "name":"Oditi Dhar Onna",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"SHJJY3222",
+    "name":"Tashafa Waziha Towhid",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"RYRJJ2222",
+    "name":"Ziad Rahman Bhuiyan",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"ERRRM0200",
+    "name":"Senjuti Sarker Tinny",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Winter Research Program 2023",
+    "role":"Junior Researcher",
+    "date":"November 15th, 2023",
+    "to":"December 25th, 2023"
+  },
+  {
+    "id":"spspsppsps",
+    "name":"spspsppsps",
+    "image": "https://yrjournal.org/images/Logo.PNG",
+    "location":"Bangladesh",
+    "school":"YRJ",
+    "program":"Spring Research Program 2024",
+    "role":"Junior Researcher",
+    "date":"March 15th, 2024",
+    "to":"April 25th, 2024"
   }
-  
+
+
 ]
