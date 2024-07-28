@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YRJ Certificate Excel Columns to JSON Converter</title>
+    <link rel="stylesheet" href="gen_styles.css">
+</head>
+<body>
+    <h1>YRJ Certificate Excel Columns to JSON Converter</h1>
+    <p>Certificate item list: </p>
+    <ul style="font: bold;">
+        <li>"id":"EWMIH2322"</li>
+         <li>"name":"Intezab Alam Sheikh"</li>
+        <li>"image": "https://yrjournal.org/images/Logo.PNG"</li>
+        <li>"location":"Bangladesh"</li>
+        <li>"school":"YRJ"</li>
+        <li>"program":"Winter Research Program 2023"</li>
+        <li>"role":"Junior Researcher"</li>
+        <li>"date":"November 15th, 2023"</li>
+        <li>"to":"December 25th, 2023"</li>
+    </ul>
+    <input type="file" id="fileInput" />
+    <div>
+        <label for="columnSelect">Select Columns:</label>
+        <select id="columnSelect" multiple></select>
+    </div>
+    <div>
+        <label for="programInput">Program:</label>
+        <input type="text" id="programInput" />
+    </div>
+    <div>
+        <label for="dateInput">Date:</label>
+        <input type="date" id="dateInputD" />
+    </div>
+    <div>
+        <label for="dateInput">Date To:</label>
+        <input type="date" id="dateInputT" />
+    </div>
+    <button id="convertBtn">Convert</button>
+    <button id="copyBtn">Copy to Clipboard</button>
+    <pre id="jsonOutput"></pre>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="gen_script.js"></script>
+</body>
+</html>
