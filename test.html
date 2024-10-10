@@ -53,6 +53,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fontkit@latest/dist/fontkit.umd.js"></script>
 
     <script>
         $(document).ready(function () {
@@ -84,9 +85,13 @@
         });
 
         async function generateCertificate(studentId, studentName, program, date, to) {
+            // Load the PDF template
             const pdfUrl = 'yrjcertp.pdf';
             const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
             const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
+
+            // Register fontkit for custom font embedding
+            pdfDoc.registerFontkit(fontkit);
 
             // Embed the custom font
             const fontBytes = await fetch("GreatVibes-Regular.ttf").then(res => res.arrayBuffer());
