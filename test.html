@@ -13,6 +13,12 @@
     <script src="https://unpkg.com/downloadjs@1.4.7"></script>
     <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
 
+    <!-- Import the QRCode.js and jsPDF libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.16.0/dist/pdf-lib.min.js"></script>
+
     <link rel="icon" href="https://yrjournal.org/fevicon/favicon.ico"/>
 <link rel="apple-touch-icon" sizes="180x180" href="https://yrjournal.org/fevicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="https://yrjournal.org/fevicon/android-chrome-192x192.png">
@@ -176,42 +182,14 @@
 
 <body>
 
-     <!-- Messenger Chat Plugin Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your Chat Plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
-    </div>
-
-    <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "115167513660646");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
-
-    <!-- Your SDK code -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v18.0'
-        });
-      };
-
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
+    
   <br /><br />
   <div class="container" style="width:900px;">
     <h2 align="center">Verify Identity & Certificate</h2>
     <h3 align="center">Youth Research Journal</h3>
     <center><button><a href="https://yrjournal.org">Home</a></button></center>
     <p align="center">Allow pop-up for this site to download Certificate.</p>
+      <p align="center">Use Google Chrome Browser for Better Download option.</p>
     <br /><br />
     <div align="center">
       <input type="text" name="search" id="search" placeholder="Search Student Details: Name, Verification Code" class="form-control" />
@@ -223,6 +201,7 @@
     <p align="center">Developed by <a href="https://md-sanaul-haque-shanto.github.io">Md Sanaul Haque Shanto</a> .</p>
     <p align="center" style="font-size: 10px;">Any Error, Suggestions, Design, Making, Develop for your company mail me at shanto@eptonline.org</p>
   </div>
+
 
 
 
@@ -254,6 +233,26 @@
         $("#result").html('');
       });
     });
+
+
+// Function to generate QR code for a student
+        function generateQRCode(text, callback) {
+            const qrElement = document.getElementById('qrcode');
+            qrElement.innerHTML = '';
+            const qrCode = new QRCode(qrElement, {
+                text: text,
+                width: 100,
+                height: 100,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            // Wait for QR code to be generated
+            setTimeout(() => {
+                const qrCanvas = qrElement.querySelector('canvas');
+                const qrDataUrl = qrCanvas.toDataURL('image/png');
+                callback(qrDataUrl);
+            }, 500); // Delay to ensure QR code is rendered
+        }
+
 
 
   const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib;
@@ -293,22 +292,33 @@
       const pages = pdfDoc.getPages();
       const firstPage = pages[0];
 
+
+       // Generate QR code for the student
+                const qrText = `Name: ${studentName}\nInstitute: ${studentId}\nProgram: ${program}`;
+                generateQRCode(qrText, async (qrDataUrl) => {
+                    const imageBytes = await fetch(qrDataUrl).then(res => res.arrayBuffer());
+                    const qrImage = await pdfDoc.embedPng(imageBytes);
+                    const qrImageDimensions = qrImage.scale(0.5); // Adjust the QR code size
+
+
+
       // Get the width and height of the first page
       const { width, height } = firstPage.getSize();
 
 
-      const fsN = 35;
+      const fsN = 30;
       const fsP = 15;
-      const fsR = 12;
+      const fsR = 14;
       const fsD = 14;
-      const fsId = 10;
+      const fsId = 12;
+
+        const toto= " to ";
 
  
      
-      firstPage.drawText(`${program}`, { x:420, y:275, size: fsP,fontSize: 15 });
-      firstPage.drawText(`${date}`, { x:320, y:232, size: fsD,fontSize: 14 });
-      firstPage.drawText(`${to}`, { x:470, y:232, size: fsD,fontSize: 14 });
-      firstPage.drawText(`${studentId}`, { x:590, y:95, size: fsId,fontSize: 14 });
+      firstPage.drawText(`${program}`, { x:410, y:342, size: fsP,fontSize: 15 });
+      firstPage.drawText(`${date}`+ `${toto}` + `${to}`, { x:320, y:300, size: fsD,fontSize: 14 });
+      firstPage.drawText(`${studentId}`, { x:590, y:95, size: fsId,fontSize: 12 });
 
 
 
@@ -318,12 +328,18 @@
 
     firstPage.drawText(`${studentName}`, {
       x: firstPage.getWidth() / 2 - textWidth / 2,
-      y: firstPage.getHeight() / 1.7 - textHeight / 2,
+      y: firstPage.getHeight() / 1.5 - textHeight / 2,
       size: fsN,
       font: GreatVibes,
     });
 
-
+// Add the QR code to the page
+                    firstPage.drawImage(qrImage, {
+                        x: 400, // Adjust the x and y position of the QR code
+                        y: 100,
+                        width: qrImageDimensions.width,
+                        height: qrImageDimensions.height
+                    });
 
 
 
@@ -342,7 +358,7 @@
 
       // Save the PDF to a file
       const pdfBytes = await pdfDoc.save();
-      downloadPDF(pdfBytes, `${studentName}_${studentId}${program}_YRJ_Certificate.pdf`);
+      downloadPDF(pdfBytes, `${studentId}_${studentName}_${program}_YRJ_Certificate.pdf`);
     }
 
     async function fetchStudentDetails(studentId) {
@@ -374,6 +390,12 @@
       link.click();
     };
   </script>
+
+     <script src="coffeti.js"></script>
+        <script type="text/javascript"> 
+
+           // confetti.start();
+        </script>
 </body>
 
 </html>
