@@ -118,13 +118,26 @@
             generateQRCode(qrData, async function (qrDataUrl) {
                 const qrImageBytes = await fetch(qrDataUrl).then(res => res.arrayBuffer());
                 const qrImage = await pdfDoc.embedPng(qrImageBytes);
-                const qrSize = 70;
+                const qrSize = 60;
                 firstPage.drawImage(qrImage, {
-                    x: 650,
+                    x: 700,
                     y: 400,
                     width: qrSize,
                     height: qrSize
                 });
+
+
+                
+      // Set all available metadata fields on the PDFDocument. Note that these fields
+        // are visible in the "Document Properties" section of most PDF readers.
+        pdfDoc.setTitle(`Certificate | ${studentName} | ${program}`);
+        pdfDoc.setAuthor('Md Sanaul Haque Shanto');
+        pdfDoc.setSubject(`IARCO Participation Certificate`);
+        pdfDoc.setKeywords(['IARCO', 'International', 'Academic', 'Research', 'Competition', 'school', 'university']);
+        pdfDoc.setProducer('Md Sanaul Haque Shanto');
+        pdfDoc.setCreator('International Academic Research Competition (https://cert.iarco.org)');
+        pdfDoc.setCreationDate(new Date());
+        pdfDoc.setModificationDate(new Date());
 
                 const pdfBytes = await pdfDoc.save();
                 downloadPDF(pdfBytes, `${studentId}_${studentName}_certificate.pdf`);
