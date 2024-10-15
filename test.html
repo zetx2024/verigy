@@ -118,10 +118,10 @@
             generateQRCode(qrData, async function (qrDataUrl) {
                 const qrImageBytes = await fetch(qrDataUrl).then(res => res.arrayBuffer());
                 const qrImage = await pdfDoc.embedPng(qrImageBytes);
-                const qrSize = 100;
+                const qrSize = 70;
                 firstPage.drawImage(qrImage, {
-                    x: 600,
-                    y: 500,
+                    x: 650,
+                    y: 400,
                     width: qrSize,
                     height: qrSize
                 });
@@ -136,8 +136,8 @@
             qrElement.innerHTML = '';
             new QRCode(qrElement, {
                 text: text,
-                width: 40,
-                height: 40,
+                width: 50,
+                height: 50,
                 correctLevel: QRCode.CorrectLevel.H
             });
             setTimeout(() => {
