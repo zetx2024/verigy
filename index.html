@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Verify Identity & Certificate | Youth Research Journal</title>
      <link rel="icon" href="https://yrjournal.org/images/Logo.png"/>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/pdf-lib@1.4.0"></script>
     <script src="https://unpkg.com/downloadjs@1.4.7"></script>
     <script src="https://unpkg.com/@pdf-lib/fontkit@0.0.4"></script>
 
-    <link rel="icon" href="https://yrjournal.org/fevicon/favicon.ico"/>
+
+<link rel="icon" href="https://yrjournal.org/fevicon/favicon.ico"/>
 <link rel="apple-touch-icon" sizes="180x180" href="https://yrjournal.org/fevicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="192x192" href="https://yrjournal.org/fevicon/android-chrome-192x192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="https://yrjournal.org/fevicon/favicon-512x512.png">
@@ -28,7 +30,7 @@
 <meta name="copyright"content="Md Sanaul Haque Shanto">
 <meta name="language" content="ES">
 <meta name="robots" content="index,follow" />
-<meta name="revised" content="2023-09-27T08:13:15.028Z" />
+<meta name="revised" content="2025-01-28T08:13:15.028Z" />
 <meta name="abstract" content="Verify Identity & Certificate | YRJ">
 <meta name="topic" content="Verify Identity & Certificate | YRJ">
 <meta name="summary" content="Verify Identity & Certificate | YRJ">
@@ -38,8 +40,8 @@
 <meta name="copyright" content="Md Sanaul Haque Shanto">
 <meta name="reply-to" content="info@yrjournal.org">
 <meta name="owner" content="Md Sanaul Haque Shanto">
-<meta name="url" content="https://bd.yrjournal.org/">
-<meta name="identifier-URL" content="https://bd.yrjournal.org/">
+<meta name="url" content="https://yrjournal.org/">
+<meta name="identifier-URL" content="https://yrjournal.org/">
 <meta name="directory" content="submission">
 <meta name="category" content="Educational">
 <meta name="coverage" content="Worldwide">
@@ -47,7 +49,7 @@
 <meta name="rating" content="General">
 <meta name="og:title" content="Verify Identity & Certificate | Youth Research Journal"/>
 <meta name="og:type" content="Educational"/>
-<meta name="og:url" content="https://bd.yrjournal.org/"/>
+<meta name="og:url" content="https://yrjournal.org/"/>
 <meta name="og:image" content="https://yrjournal.org/fevicon/favicon.ico">
 <meta name="og:site_name" content="Verify Identity & Certificate | YRJ"/>
 <meta name="og:description" content="An initiative by Youth Research Journal is the first Journal published by high school students, for high school students."/>
@@ -87,7 +89,7 @@
             },
         "headline": "Youth Research Journal",
         "datePublished": "2023-09-27T16:15:48+0100",
-        "dateModified": "2023-09-27T11:18:24+0100",
+        "dateModified": "2025-01-28T11:18:24+0100",
         "author": {
                 "@type": "Person",
                 "name": "Youth Research Journal"
@@ -155,164 +157,111 @@
       gtag('config', 'G-6P4BYKQ77T');
     </script>
 
-
-  <style>
-    #result {
-      position: absolute;
-      width: 100%;
-      max-width: 870px;
-      cursor: pointer;
-      overflow-y: auto;
-      max-height: 400px;
-      box-sizing: border-box;
-      z-index: 1001;
-    }
-
-    .link-class:hover {
-      background-color: #f1f1f1;
-    }
-  </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .container {
+            width: 900px;
+            margin: auto;
+        }
+        #qrcode {
+            display: none;
+        }
+        .form-control {
+            padding: 10px;
+            width: 80%;
+        }
+        .list-group-item {
+            margin-top: 10px;
+        }
+    </style>
 </head>
-
 <body>
-
-     <!-- Messenger Chat Plugin Code -->
-    <div id="fb-root"></div>
-
-    <!-- Your Chat Plugin code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
+    <div class="container">
+        <h2 align="center">Verify Identity & Certificate</h2>
+        <h3 align="center">Youth Research Journal</h3>
+        <center><button><a href="https://yrjournal.org">Home</a></button></center>
+        <p align="center">Allow pop-up for this site to download Certificate. Wait 10S for generate.</p>
+        <p align="center">Use Google Chrome Browser for Better Download option.</p>
+        <div align="center">
+            <input type="text" name="search" id="search" placeholder="Search Student: Name, Verification Code" class="form-control" />
+        </div>
+        <ul class="list-group" id="result"></ul>
+        <p align="center">Developed by <a href="https://md-sanaul-haque-shanto.github.io">Md Sanaul Haque Shanto</a>.</p>
+        <p align="center" style="font-size: 10px;">Any Error, Suggestions, Design, Mail me at shanto@yrjournal.org</p>
     </div>
 
+    <div id="qrcode"></div>
+
+    <!-- Import the required libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.16.0/pdf-lib.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@pdf-lib/fontkit@1.1.1/dist/fontkit.umd.min.js"></script>
+
     <script>
-      var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute("page_id", "115167513660646");
-      chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
+        $(document).ready(function () {
+            $.ajaxSetup({ cache: false });
+            $('#search').keyup(function () {
+                $('#result').html('');
+                var searchField = $('#search').val();
+                var expression = new RegExp(searchField, "i");
+                $.getJSON('datap.json', function (data) {
+                    $.each(data, function (key, value) {
+                        if (value.name.search(expression) != -1 || value.id.search(expression) != -1) {
+                            $('#result').append(`
+                                <li class="list-group-item link-class">
+                                    <img src="${value.image}" height="40" width="40" class="img-thumbnail" /> ${value.name} | 
+                                    <span class="text-muted">${value.location}</span> | <span class="text-muted">${value.program}</span>
+                                    <button onclick="generateCertificate('${value.id}', '${value.name}', '${value.program}', '${value.date}', '${value.to}')">Generate Certificate</button>
+                                </li>
+                            `);
+                        }
+                    });
+                });
+            });
 
-    <!-- Your SDK code -->
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          xfbml            : true,
-          version          : 'v18.0'
+            $('#result').on('click', 'li', function () {
+                var click_text = $(this).text().split('|');
+                $('#search').val($.trim(click_text[0]));
+                $("#result").html('');
+            });
         });
-      };
 
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
-    </script>
-  <br /><br />
-  <div class="container" style="width:900px;">
-    <h2 align="center">Verify Identity & Certificate</h2>
-    <h3 align="center">Youth Research Journal</h3>
-    <center><button><a href="https://yrjournal.org">Home</a></button></center>
-    <p align="center">Allow pop-up for this site to download Certificate.</p>
-      <p align="center">Use Google Chrome Browser for Better Download option.</p>
-    <br /><br />
-    <div align="center">
-      <input type="text" name="search" id="search" placeholder="Search Student Details: Name, Verification Code" class="form-control" />
-    </div>
-    <ul class="list-group" id="result"></ul>
-    <br />
-    <br />
-    <br />
-    <p align="center">Developed by <a href="https://md-sanaul-haque-shanto.github.io">Md Sanaul Haque Shanto</a> .</p>
-    <p align="center" style="font-size: 10px;">Any Error, Suggestions, Design, Making, Develop for your company mail me at shanto@eptonline.org</p>
-  </div>
+        async function generateCertificate(studentId, studentName, program, date, to) {
+            // Load the PDF template
+            const pdfUrl = 'yrjcertp.pdf';
+            const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
+            const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
 
+            // Register fontkit for custom font embedding
+            pdfDoc.registerFontkit(fontkit);
 
-
-  <script>
-    $(document).ready(function () {
-      $.ajaxSetup({ cache: false });
-      $('#search').keyup(function () {
-        $('#result').html('');
-        var searchField = $('#search').val();
-        var expression = new RegExp(searchField, "i");
-        $.getJSON('datap.json', function (data) {
-          $.each(data, function (key, value) {
-            if (value.name.search(expression) != -1 || value.id.search(expression) != -1) {
-              $('#result').append(`
-                <li class="list-group-item link-class">
-                  <img src="${value.image}" height="40" width="40" class="img-thumbnail" /> ${value.name} | 
-                  <span class="text-muted">${value.location}</span> | <span class="text-muted">${value.program}</span>
-                  <button onclick="generateCertificate('${value.id}', '${value.name}', '${value.program}', '${value.date}', '${value.to}')">Generate Certificate</button>
-                </li>
-              `);
-            }
-          });
-        });
-      });
-
-      $('#result').on('click', 'li', function () {
-        var click_text = $(this).text().split('|');
-        $('#search').val($.trim(click_text[0]));
-        $("#result").html('');
-      });
-    });
-
-
-  const { degrees, PDFDocument, rgb, StandardFonts } = PDFLib;
-
-
-    async function generateCertificate(studentId, studentName, program, date, to) {
-      // Fetch student details based on the ID
-      const studentDetails = await fetchStudentDetails(studentId);
-
-      if (!studentDetails) {
-        alert('Student not found');
-        return;
-      }
-
-      // Fetch an existing PDF document
-      const url = 'yrjcertp.pdf';
-        const existingPdfBytes = await fetch(url).then(res => res.arrayBuffer());
-
-      // Load a PDFDocument from the existing PDF bytes
-      const pdfDoc = await PDFDocument.load(existingPdfBytes);
-
-      pdfDoc.registerFontkit(fontkit);
-
-      //get font
-      const fontBytes = await fetch("GreatVibes-Regular.ttf").then((res) =>
+          //get font
+      const fontBytes1 = await fetch("GreatVibes-Regular.ttf").then((res) =>
+        res.arrayBuffer()
+      );
+    const fontBytes2 = await fetch("GreatVibes-Regular.ttf").then((res) =>
         res.arrayBuffer()
       );
 
       // Embed our custom font in the document
-      const GreatVibes = await pdfDoc.embedFont(fontBytes);
+      const GreatVibes = await pdfDoc.embedFont(fontBytes1);
+      const PtSans = await pdfDoc.embedFont(fontBytes2);
 
+            const pages = pdfDoc.getPages();
+            const firstPage = pages[0];
 
-      // Embed the Helvetica font
-      //const helveticaFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
-
-      // Get the first page of the document
-      const pages = pdfDoc.getPages();
-      const firstPage = pages[0];
-
-      // Get the width and height of the first page
-      const { width, height } = firstPage.getSize();
-
-
-      const fsN = 30;
-      const fsP = 15;
-      const fsR = 14;
-      const fsD = 14;
-      const fsId = 12;
-
-        const toto= " to ";
-
- 
-     
-      firstPage.drawText(`${program}`, { x:410, y:342, size: fsP,fontSize: 15 });
-      firstPage.drawText(`${date}`+ `${toto}` + `${to}`, { x:320, y:300, size: fsD,fontSize: 14 });
-      firstPage.drawText(`${studentId}`, { x:590, y:95, size: fsId,fontSize: 12 });
-
-
+            // Add student details to the PDF
+            const fontSize = 30;
+            const fsN = 30;
+            const fsP = 15;
+            const fsR = 14;
+            const fsD = 14;
+            const fsId = 12;
+            const toto= " to ";
 
 
     const textWidth = GreatVibes.widthOfTextAtSize(`${studentName}`, fsN);
@@ -327,10 +276,28 @@
 
 
 
+            
+         firstPage.drawText(`${program}`, { x:410, y:342, size: fsP,fontSize: 15 });
+      firstPage.drawText(`${date}`+ `${toto}` + `${to}`, { x:320, y:300, size: fsD,fontSize: 14 });
+      firstPage.drawText(`${studentId}`, { x:590, y:95, size: fsId,fontSize: 12 });
+
+            
+
+            // Generate QR code
+            const qrData = `ID: ${studentId}\nName: ${studentName}\nProgram: ${program}\nDate: ${to}\nVerify at: https://verify.yrjournal.org`;
+            generateQRCode(qrData, async function (qrDataUrl) {
+                const qrImageBytes = await fetch(qrDataUrl).then(res => res.arrayBuffer());
+                const qrImage = await pdfDoc.embedPng(qrImageBytes);
+                const qrSize = 90;
+                firstPage.drawImage(qrImage, {
+                    x: 700,
+                    y: 400,
+                    width: qrSize,
+                    height: qrSize
+                });
 
 
-
-      // Set all available metadata fields on the PDFDocument. Note that these fields
+                // Set all available metadata fields on the PDFDocument. Note that these fields
         // are visible in the "Document Properties" section of most PDF readers.
         pdfDoc.setTitle(`Certificate | ${studentName} | ${program}`);
         pdfDoc.setAuthor('Md Sanaul Haque Shanto');
@@ -338,50 +305,37 @@
         pdfDoc.setKeywords(['YRJ', 'winter', 'spring', 'summer', 'research', 'school', 'program']);
         pdfDoc.setProducer('Md Sanaul Haque Shanto');
         pdfDoc.setCreator('Youth Research Journal (https://verify.yrjournal.org)');
-        pdfDoc.setCreationDate(new Date());
+        pdfDoc.setCreationDate(new Date('2025/01/28'));
         pdfDoc.setModificationDate(new Date());
-      
 
-      // Save the PDF to a file
-      const pdfBytes = await pdfDoc.save();
-      downloadPDF(pdfBytes, `${studentId}_${studentName}_${program}_YRJ_Certificate.pdf`);
-    }
-
-    async function fetchStudentDetails(studentId) {
-      try {
-        // Read the local JSON file
-        const response = await fetch('datap.json');
-        const data = await response.json();
-
-        // Find the student with the given ID
-        const student = data.find(s => s.id === studentId);
-
-        if (!student) {
-          console.error(`Student with ID ${studentId} not found`);
-          return null;
+                const pdfBytes = await pdfDoc.save();
+                downloadPDF(pdfBytes, `${studentId}_${studentName}_YRJ_Certificate.pdf`);
+            });
         }
 
-        return student;
-      } catch (error) {
-        console.error('Error fetching student details:', error);
-        return null;
-      }
-    };
+        function generateQRCode(text, callback) {
+            const qrElement = document.getElementById('qrcode');
+            qrElement.innerHTML = '';
+            new QRCode(qrElement, {
+                text: text,
+                width: 90,
+                height: 90,
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            setTimeout(() => {
+                const qrCanvas = qrElement.querySelector('canvas');
+                const qrDataUrl = qrCanvas.toDataURL('image/png');
+                callback(qrDataUrl);
+            }, 500); // Delay to ensure QR code is rendered
+        }
 
-    function downloadPDF(pdfBytes, filename) {
-      const blob = new Blob([pdfBytes], { type: 'application/pdf' });
-      const link = document.createElement('a');
-      link.href = window.URL.createObjectURL(blob);
-      link.download = filename;
-      link.click();
-    };
-  </script>
-
-     <script src="coffeti.js"></script>
-        <script type="text/javascript"> 
-
-           // confetti.start();
-        </script>
+        function downloadPDF(pdfBytes, filename) {
+            const blob = new Blob([pdfBytes], { type: 'application/pdf' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+        }
+    </script>
 </body>
-
 </html>
