@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Certificate Generator with QR Code</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <title>Certificate | IARCO</title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
@@ -35,12 +35,12 @@
 <body>
     <div class="container">
         <h2 align="center">Verify Identity & Certificate</h2>
-        <h3 align="center">Youth Research Journal</h3>
-        <center><button><a href="https://yrjournal.org">Home</a></button></center>
-        <p align="center">Allow pop-up for this site to download Certificate.</p>
+        <h3 align="center">IARCO</h3>
+        <center><button><a href="https://iarco.org">Home</a></button></center>
+        <p align="center">Allow pop-up for this site to download Certificate. Wait 10S for generate.</p>
         <p align="center">Use Google Chrome Browser for Better Download option.</p>
         <div align="center">
-            <input type="text" name="search" id="search" placeholder="Search Student Details: Name, Verification Code" class="form-control" />
+            <input type="text" name="search" id="search" placeholder="Search Student: Name, Verification Code" class="form-control" />
         </div>
         <ul class="list-group" id="result"></ul>
         <p align="center">Developed by <a href="https://md-sanaul-haque-shanto.github.io">Md Sanaul Haque Shanto</a>.</p>
@@ -86,39 +86,63 @@
 
         async function generateCertificate(studentId, studentName, program, date, to) {
             // Load the PDF template
-            const pdfUrl = 'yrjcertp.pdf';
+            const pdfUrl = 'yrjcert.pdf';
             const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
             const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
 
             // Register fontkit for custom font embedding
             pdfDoc.registerFontkit(fontkit);
 
-            // Embed the custom font
-            const fontBytes = await fetch("GreatVibes-Regular.ttf").then(res => res.arrayBuffer());
-            const customFont = await pdfDoc.embedFont(fontBytes);
+          //get font
+      const fontBytes1 = await fetch("GreatVibes-Regular.ttf").then((res) =>
+        res.arrayBuffer()
+      );
+    const fontBytes2 = await fetch("pt-sans.ttf").then((res) =>
+        res.arrayBuffer()
+      );
+
+      // Embed our custom font in the document
+      const GreatVibes = await pdfDoc.embedFont(fontBytes1);
+      const PtSans = await pdfDoc.embedFont(fontBytes2);
 
             const pages = pdfDoc.getPages();
             const firstPage = pages[0];
 
             // Add student details to the PDF
             const fontSize = 30;
-            const studentNameWidth = customFont.widthOfTextAtSize(studentName, fontSize);
-            firstPage.drawText(studentName, {
-                x: firstPage.getWidth() / 2 - studentNameWidth / 2,
-                y: firstPage.getHeight() / 1.5,
-                size: fontSize,
-                font: customFont,
-            });
-            firstPage.drawText(program, { x: 410, y: 342, size: 15 });
-            firstPage.drawText(`${date} to ${to}`, { x: 320, y: 300, size: 14 });
-            firstPage.drawText(studentId, { x: 590, y: 95, size: 12 });
+            const fsN = 30;
+            const fsP = 15;
+            const fsR = 14;
+            const fsD = 14;
+            const fsId = 12;
+            const toto= " to ";
+
+
+    const textWidth = GreatVibes.widthOfTextAtSize(`${studentName}`, fsN);
+    const textHeight = GreatVibes.heightAtSize(fsN);
+
+    firstPage.drawText(`${studentName}`, {
+      x: firstPage.getWidth() / 2 - textWidth / 2,
+      y: firstPage.getHeight() / 1.5 - textHeight / 2,
+      size: fsN,
+      font: GreatVibes,
+    });
+
+
+
+            
+         firstPage.drawText(`${program}`, { x:410, y:342, size: fsP,fontSize: 15 });
+      firstPage.drawText(`${date}`+ `${toto}` + `${to}`, { x:320, y:300, size: fsD,fontSize: 14 });
+      firstPage.drawText(`${studentId}`, { x:590, y:95, size: fsId,fontSize: 12 });
+
+            
 
             // Generate QR code
-            const qrData = `Name: ${studentName}, ID: ${studentId}, Program: ${program}`;
+            const qrData = `ID: ${studentId}\nName: ${studentName}\nProgram: ${program}\nDate: ${to}\nVerify at: https://verify.yrjournal.org`;
             generateQRCode(qrData, async function (qrDataUrl) {
                 const qrImageBytes = await fetch(qrDataUrl).then(res => res.arrayBuffer());
                 const qrImage = await pdfDoc.embedPng(qrImageBytes);
-                const qrSize = 60;
+                const qrSize = 90;
                 firstPage.drawImage(qrImage, {
                     x: 700,
                     y: 400,
@@ -127,20 +151,19 @@
                 });
 
 
-                
-      // Set all available metadata fields on the PDFDocument. Note that these fields
+                // Set all available metadata fields on the PDFDocument. Note that these fields
         // are visible in the "Document Properties" section of most PDF readers.
         pdfDoc.setTitle(`Certificate | ${studentName} | ${program}`);
         pdfDoc.setAuthor('Md Sanaul Haque Shanto');
-        pdfDoc.setSubject(`IARCO Participation Certificate`);
-        pdfDoc.setKeywords(['IARCO', 'International', 'Academic', 'Research', 'Competition', 'school', 'university']);
+        pdfDoc.setSubject(`YRJ Participation Certificate`);
+        pdfDoc.setKeywords(['YRJ', 'winter', 'spring', 'summer', 'research', 'school', 'program']);
         pdfDoc.setProducer('Md Sanaul Haque Shanto');
-        pdfDoc.setCreator('International Academic Research Competition (https://cert.iarco.org)');
-        pdfDoc.setCreationDate(new Date());
+        pdfDoc.setCreator('Youth Research Journal (https://verify.yrjournal.org)');
+        pdfDoc.setCreationDate(new Date('2025/01/28'));
         pdfDoc.setModificationDate(new Date());
 
                 const pdfBytes = await pdfDoc.save();
-                downloadPDF(pdfBytes, `${studentId}_${studentName}_certificate.pdf`);
+                downloadPDF(pdfBytes, `${studentId}_${studentName}_YRJ_Certificate.pdf`);
             });
         }
 
@@ -149,8 +172,8 @@
             qrElement.innerHTML = '';
             new QRCode(qrElement, {
                 text: text,
-                width: 50,
-                height: 50,
+                width: 90,
+                height: 90,
                 correctLevel: QRCode.CorrectLevel.H
             });
             setTimeout(() => {
