@@ -86,7 +86,7 @@
 
         async function generateCertificate(studentId, studentName, program, date, to) {
             // Load the PDF template
-            const pdfUrl = 'yrjcert.pdf';
+            const pdfUrl = 'yrjcertp.pdf';
             const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
             const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
 
