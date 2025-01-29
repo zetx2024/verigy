@@ -232,7 +232,7 @@
 
         async function generateCertificate(studentId, studentName, program, date, to) {
             // Load the PDF template
-            const pdfUrl = 'yrjcertp.pdf';
+            const pdfUrl = 'yrjcert.pdf';
             const existingPdfBytes = await fetch(pdfUrl).then(res => res.arrayBuffer());
             const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
 
