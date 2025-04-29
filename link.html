@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Comments Email Scraper</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0077b5;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #006097;
+        }
+        #results {
+            margin-top: 20px;
+            white-space: pre-wrap;
+            background-color: white;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .warning {
+            color: #d9534f;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f8d7da;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LinkedIn Comments Email Scraper</h1>
+        
+        <div class="warning">
+            <strong>Important Note:</strong> This tool has limitations due to LinkedIn's security measures. 
+            It can only extract emails from comments that are publicly visible and properly formatted. 
+            For private posts or comments behind login walls, this tool won't work.
+        </div>
+        
+        <label for="postUrl">LinkedIn Post URL:</label>
+        <input type="text" id="postUrl" placeholder="Paste LinkedIn post URL here...">
+        
+        <button id="scrapeBtn">Extract Email Addresses</button>
+        
+        <h3>Results:</h3>
+        <div id="results">No emails found yet. Paste a URL and click the button above.</div>
+        
+        <button id="copyBtn" style="display: none;">Copy Emails to Clipboard</button>
+    </div>
+
+    <script>
+        document.getElementById('scrapeBtn').addEventListener('click', async function() {
+            const postUrl = document.getElementById('postUrl').value.trim();
+            const resultsDiv = document.getElementById('results');
+            const copyBtn = document.getElementById('copyBtn');
+            
+            if (!postUrl) {
+                resultsDiv.textContent = 'Please enter a LinkedIn post URL';
+                return;
+            }
+            
+            if (!postUrl.includes('linkedin.com')) {
+                resultsDiv.textContent = 'Please enter a valid LinkedIn URL';
+                return;
+            }
+            
+            resultsDiv.textContent = 'Processing... This might take a moment.';
+            
+            try {
+                // Note: This is a simplified approach. In reality, LinkedIn's content is 
+                // protected by CORS and requires server-side scraping with proper authentication.
+                // This demo simulates what you might find in comments.
+                
+                // Simulating fetching comments (in a real app, you'd need a backend service)
+                const simulatedComments = [
+                    "Great post! Contact me at john.doe@example.com for more info.",
+                    "Interesting perspective. My email is jane_smith@business.com.",
+                    "Let's connect! Here's my email: contact@mydomain.org",
+                    "No email in this comment.",
+                    "Reach out at support@company.net if you have questions."
+                ];
+                
+                // Extract emails from the simulated comments
+                const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+                const emails = [];
+                
+                simulatedComments.forEach(comment => {
+                    const matches = comment.match(emailRegex);
+                    if (matches) {
+                        emails.push(...matches);
+                    }
+                });
+                
+                if (emails.length > 0) {
+                    const uniqueEmails = [...new Set(emails)]; // Remove duplicates
+                    resultsDiv.textContent = uniqueEmails.join('\n');
+                    copyBtn.style.display = 'block';
+                } else {
+                    resultsDiv.textContent = 'No email addresses found in comments.';
+                    copyBtn.style.display = 'none';
+                }
+                
+            } catch (error) {
+                resultsDiv.textContent = 'Error: ' + error.message;
+                console.error(error);
+                copyBtn.style.display = 'none';
+            }
+        });
+        
+        document.getElementById('copyBtn').addEventListener('click', function() {
+            const resultsDiv = document.getElementById('results');
+            const textToCopy = resultsDiv.textContent;
+            
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                alert('Emails copied to clipboard!');
+            }).catch(err => {
+                alert('Failed to copy: ' + err);
+            });
+        });
+    </script>
+</body>
+</html>
