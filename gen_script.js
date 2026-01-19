@@ -67,7 +67,7 @@ function convertToJSON() {
 }
 
 function generateRandomID() {
-    const chars = '23ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz25YRJSRP25';
+    const chars = '43ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz25YRJWRP25';
     let result = '';
     for (let i = 0; i < 11; i++) {
         result += chars.charAt(Math.floor(Math.random() * chars.length));
