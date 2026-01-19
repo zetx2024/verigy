@@ -28,7 +28,7 @@ function populateColumnSelect() {
         const option = document.createElement('option');
         option.value = index;
         option.text = col;
-        option.selected = false; // Ensure no options are selected by default
+        option.selected = false;
         columnSelect.appendChild(option);
     });
 }
@@ -46,19 +46,23 @@ function convertToJSON() {
     const date = document.getElementById('dateInputD').value || '';
     const to = document.getElementById('dateInputT').value || '';
 
+    const locationIndex = columns.indexOf('location');
+
     const jsonResult = sheetData.slice(1).map(row => {
         const result = {
             id: generateRandomID(),
             program: program,
             image: "https://yrjournal.org/images/Logo.PNG",
-            location: "Bangladesh",
+            location: locationIndex !== -1 ? row[locationIndex] || '' : '',
             role: "Junior Researcher",
             date: formatDate(row[columns.indexOf('date')] || date),
             to: formatDate(row[columns.indexOf('date')] || to)
         };
+
         columnIndices.forEach(index => {
             result[columns[index]] = row[index];
         });
+
         return result;
     });
 
@@ -75,15 +79,12 @@ function generateRandomID() {
     return result;
 }
 
-
 function formatDate(dateString) {
     if (!dateString) return '';
-    
     const date = new Date(dateString);
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     return date.toLocaleDateString('en-US', options);
 }
-
 
 function copyToClipboard() {
     const jsonOutput = document.getElementById('jsonOutput').textContent;
@@ -93,10 +94,6 @@ function copyToClipboard() {
     }
 
     navigator.clipboard.writeText(jsonOutput)
-        .then(() => {
-            alert('JSON copied to clipboard!');
-        })
-        .catch(err => {
-            console.error('Failed to copy JSON: ', err);
-        });
+        .then(() => alert('JSON copied to clipboard!'))
+        .catch(err => console.error('Failed to copy JSON: ', err));
 }
